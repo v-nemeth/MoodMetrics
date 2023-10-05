@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.notifications.NotificationsFragment">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mood"
+        android:textSize="48sp"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:text="5. October 2023 - 12:00"
+        android:layout_above="@id/smileys"
+        android:layout_centerHorizontal="true" />
+
+    <LinearLayout
+        android:id="@+id/smileys"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:divider="@drawable/spacer"
+        android:showDividers="middle">
+
+        <TextView
+            android:id="@+id/saddestSmiley"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:gravity="center"
+            android:textSize="48sp"
+            android:text="😞"
+            android:background="?selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true" />
+        <TextView
+            android:id="@+id/sadSmiley"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:gravity="center"
+            android:textSize="48sp"
+            android:text="🙁"
+            android:background="?selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <TextView
+            android:id="@+id/neutralSmiley"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:gravity="center"
+            android:textSize="48sp"
+            android:text="😐"
+            android:background="?selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <TextView
+            android:id="@+id/happySmiley"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:gravity="center"
+            android:textSize="48sp"
+            android:text="☺️"
+            android:background="?selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true" />
+        <TextView
+            android:id="@+id/happiestSmiley"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:gravity="center"
+            android:textSize="48sp"
+            android:text="😆"
+            android:background="?selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:layout_below="@id/smileys"
+        android:layout_marginTop="100dp"
+        android:layout_centerHorizontal="true"
+        android:enabled="false"/>
+
+    <TextView
+        android:id="@+id/mood_settings"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:gravity="center"
+        android:textSize="48sp"
+        android:text="⚙️"
+        android:background="?selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true" />
+</RelativeLayout>
