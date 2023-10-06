@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp">
+
+    <TextView
+        android:id="@+id/login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="30dp"
+        android:gravity="left"
+        android:text="Login"
+        android:textSize="20pt" />
+
+    <EditText
+        android:id="@+id/userID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/login"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginTop="30dp"
+        android:gravity="left"
+        android:inputType="text"
+        android:textColor="#3D3D3D"
+        android:hint="ID"
+        android:textSize="30sp" />
+
+    <EditText
+        android:id="@+id/userPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/userID"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginTop="20dp"
+        android:gravity="left"
+        android:inputType="textPassword"
+        android:textColor="#3D3D3D"
+        android:hint="Password"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/infoText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/userPassword"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="5dp"
+        android:gravity="left"
+        android:text="Please enter ID / Password to login"
+        android:textSize="8pt" />
+
+    <TextView
+        android:id="@+id/infoError"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/infoText"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="0dp"
+        android:gravity="left"
+        android:text="Invalid username or password, \nPlease try again."
+        android:textColor="#A20000"
+        android:textSize="8pt"
+        tools:visibility="invisible" />
+
+    <Button
+        android:id="@+id/signIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/infoError"
+        android:layout_marginRight="10dp" android:gravity="center"
+        android:text="Sign In"
+        android:textSize="10pt"
+        android:layout_alignRight="@+id/infoError"
+        />
+
+    <Button
+        android:id="@+id/register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/infoError"
+        android:layout_alignLeft="@+id/infoError"
+        android:layout_marginLeft="10dp"
+        android:backgroundTint="#2B2B2B"
+        android:gravity="center"
+        android:text="Register"
+        android:textColor="#DEDEDE"
+        android:textSize="10pt" />
+
+</RelativeLayout>
