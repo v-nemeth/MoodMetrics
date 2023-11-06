@@ -1,465 +1,471 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.HomeFragment">
+    tools:context=".HomeFragment">
 
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="MoodMetrics"
-        android:textSize="48sp"
-        android:layout_marginTop="20dp"
-        android:layout_centerHorizontal="true"/>
-
-    <TextView
-        android:id="@+id/monthlyMoodLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Monthly Mood Metrics"
-        android:textSize="18sp"
-        android:layout_marginTop="30dp"
-        android:layout_below="@id/title"
-        android:layout_centerHorizontal="true"/>
-
-
-    <GridLayout
-        android:id="@+id/monthlyMoodGrid"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/monthlyMoodLabel"
-        android:columnCount="8"
-        android:layout_centerHorizontal="true">
+    <!-- TODO: Update blank fragment layout -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <TextView
+            android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="mon" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="wed" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="fri" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="" />
-
-
-        <!-- You can repeat such views to represent days -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="" />
-
-        <View
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_margin="4dp"
-            android:background="#ebedf0" />
-
-        <View
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_margin="4dp"
-            android:background="#fd7575" />
-
-        <View
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_margin="4dp"
-            android:background="#40c463" />
-
-        <View
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_margin="4dp"
-            android:background="#ebedf0" />
-
-        <View
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_margin="4dp"
-            android:background="#9be9a8" />
-
-        <View
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_margin="4dp"
-            android:background="#40c463" />
-
-        <View
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_margin="4dp"
-            android:background="#ebedf0" />
+            android:text="MoodMetrics"
+            android:textSize="48sp"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"/>
 
         <TextView
+            android:id="@+id/monthlyMoodLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Aug" />
+            android:text="Monthly Mood Metrics"
+            android:textSize="18sp"
+            android:layout_marginTop="30dp"
+            android:layout_below="@id/title"
+            android:layout_centerHorizontal="true"/>
 
-        <View
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_margin="4dp"
-            android:background="#fd7575" />
 
-        <View
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_margin="4dp"
-            android:background="#9be9a8" />
+        <GridLayout
+            android:id="@+id/monthlyMoodGrid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/monthlyMoodLabel"
+            android:columnCount="8"
+            android:layout_centerHorizontal="true">
 
-        <View
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_margin="4dp"
-            android:background="#40c463" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="mon" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="wed" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="fri" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="" />
 
-        <View
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_margin="4dp"
-            android:background="#ebedf0" />
 
-        <View
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_margin="4dp"
-            android:background="#9be9a8" />
+            <!-- You can repeat such views to represent days -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="" />
 
-        <View
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_margin="4dp"
-            android:background="#40c463" />
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="4dp"
+                android:background="#ebedf0" />
 
-        <View
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_margin="4dp"
-            android:background="#ebedf0" />
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="4dp"
+                android:background="#fd7575" />
 
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="4dp"
+                android:background="#40c463" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="4dp"
+                android:background="#ebedf0" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="4dp"
+                android:background="#9be9a8" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="4dp"
+                android:background="#40c463" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="4dp"
+                android:background="#ebedf0" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Aug" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="4dp"
+                android:background="#fd7575" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="4dp"
+                android:background="#9be9a8" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="4dp"
+                android:background="#40c463" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="4dp"
+                android:background="#ebedf0" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="4dp"
+                android:background="#9be9a8" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="4dp"
+                android:background="#40c463" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="4dp"
+                android:background="#ebedf0" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="4dp"
+                android:background="#fd7575" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="4dp"
+                android:background="#fd7575" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="4dp"
+                android:background="#ebedf0" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="4dp"
+                android:background="#fd4141" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="4dp"
+                android:background="#9be9a8" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="4dp"
+                android:background="#fdaaaa" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="4dp"
+                android:background="#fdaaaa" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="4dp"
+                android:background="#fdaaaa" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="4dp"
+                android:background="#9be9a8" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="4dp"
+                android:background="#40c463" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="4dp"
+                android:background="#40c463" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="4dp"
+                android:background="#40c463" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="4dp"
+                android:background="#40c463" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="4dp"
+                android:background="#ebedf0" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sep" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="4dp"
+                android:background="#ebedf0" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="4dp"
+                android:background="#9be9a8" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="4dp"
+                android:background="#40c463" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="4dp"
+                android:background="#ebedf0" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="4dp"
+                android:background="#9be9a8" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="4dp"
+                android:background="#40c463" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="4dp"
+                android:background="#ebedf0" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="4dp"
+                android:background="#ebedf0" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="4dp"
+                android:background="#9be9a8" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="4dp"
+                android:background="#fdaaaa" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="4dp"
+                android:background="#fdaaaa" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="4dp"
+                android:background="#9be9a8" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="4dp"
+                android:background="#40c463" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="4dp"
+                android:background="#ebedf0" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="4dp"
+                android:background="#ebedf0" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="4dp"
+                android:background="#9be9a8" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="4dp"
+                android:background="#fdaaaa" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="4dp"
+                android:background="#ebedf0" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="4dp"
+                android:background="#fdaaaa" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="4dp"
+                android:background="#40c463" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="4dp"
+                android:background="#ebedf0" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Oct" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="4dp"
+                android:background="#ebedf0" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="4dp"
+                android:background="#9be9a8" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="4dp"
+                android:background="#40c463" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="4dp"
+                android:background="#ebedf0" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="4dp"
+                android:background="#9be9a8" />
+        </GridLayout>
+
+        <Button
+            android:id="@+id/showGraphButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:text="Show graph"
+            android:layout_below="@id/monthlyMoodGrid"
+            android:layout_marginTop="50dp"
+            android:layout_centerHorizontal="true" />
+
+        <!--- Create a text view that shows your current BMI-->
         <TextView
+            android:id="@+id/currentBmi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="" />
-
-        <View
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_margin="4dp"
-            android:background="#fd7575" />
-
-        <View
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_margin="4dp"
-            android:background="#fd7575" />
-
-        <View
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_margin="4dp"
-            android:background="#ebedf0" />
-
-        <View
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_margin="4dp"
-            android:background="#fd4141" />
-
-        <View
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_margin="4dp"
-            android:background="#9be9a8" />
-
-        <View
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_margin="4dp"
-            android:background="#fdaaaa" />
-
-        <View
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_margin="4dp"
-            android:background="#fdaaaa" />
-
+            android:textSize="24sp"
+            android:text="Your current BMI: --"
+            android:layout_below="@id/showGraphButton"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true" />
+        <!--- And the interpretation of your BMI-->
         <TextView
+            android:id="@+id/bmiInterpretation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="" />
+            android:textSize="20sp"
+            android:text="Interpretation: --"
+            android:layout_below="@id/currentBmi"
+            android:layout_marginTop="12dp"
+            android:layout_centerHorizontal="true" />
 
-        <View
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_margin="4dp"
-            android:background="#fdaaaa" />
+    </RelativeLayout>
 
-        <View
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_margin="4dp"
-            android:background="#9be9a8" />
-
-        <View
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_margin="4dp"
-            android:background="#40c463" />
-
-        <View
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_margin="4dp"
-            android:background="#40c463" />
-
-        <View
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_margin="4dp"
-            android:background="#40c463" />
-
-        <View
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_margin="4dp"
-            android:background="#40c463" />
-
-        <View
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_margin="4dp"
-            android:background="#ebedf0" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Sep" />
-
-        <View
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_margin="4dp"
-            android:background="#ebedf0" />
-
-        <View
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_margin="4dp"
-            android:background="#9be9a8" />
-
-        <View
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_margin="4dp"
-            android:background="#40c463" />
-
-        <View
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_margin="4dp"
-            android:background="#ebedf0" />
-
-        <View
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_margin="4dp"
-            android:background="#9be9a8" />
-
-        <View
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_margin="4dp"
-            android:background="#40c463" />
-
-        <View
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_margin="4dp"
-            android:background="#ebedf0" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="" />
-
-        <View
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_margin="4dp"
-            android:background="#ebedf0" />
-
-        <View
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_margin="4dp"
-            android:background="#9be9a8" />
-
-        <View
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_margin="4dp"
-            android:background="#fdaaaa" />
-
-        <View
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_margin="4dp"
-            android:background="#fdaaaa" />
-
-        <View
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_margin="4dp"
-            android:background="#9be9a8" />
-
-        <View
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_margin="4dp"
-            android:background="#40c463" />
-
-        <View
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_margin="4dp"
-            android:background="#ebedf0" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="" />
-
-        <View
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_margin="4dp"
-            android:background="#ebedf0" />
-
-        <View
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_margin="4dp"
-            android:background="#9be9a8" />
-
-        <View
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_margin="4dp"
-            android:background="#fdaaaa" />
-
-        <View
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_margin="4dp"
-            android:background="#ebedf0" />
-
-        <View
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_margin="4dp"
-            android:background="#fdaaaa" />
-
-        <View
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_margin="4dp"
-            android:background="#40c463" />
-
-        <View
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_margin="4dp"
-            android:background="#ebedf0" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Oct" />
-
-        <View
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_margin="4dp"
-            android:background="#ebedf0" />
-
-        <View
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_margin="4dp"
-            android:background="#9be9a8" />
-
-        <View
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_margin="4dp"
-            android:background="#40c463" />
-
-        <View
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_margin="4dp"
-            android:background="#ebedf0" />
-
-        <View
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_margin="4dp"
-            android:background="#9be9a8" />
-    </GridLayout>
-
-    <Button
-        android:id="@+id/showGraphButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="12sp"
-        android:text="Show graph"
-        android:layout_below="@id/monthlyMoodGrid"
-        android:layout_marginTop="50dp"
-        android:layout_centerHorizontal="true" />
-
-    <!--- Create a text view that shows your current BMI-->
-    <TextView
-        android:id="@+id/currentBmi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:text="Your current BMI: --"
-        android:layout_below="@id/showGraphButton"
-        android:layout_marginTop="20dp"
-        android:layout_centerHorizontal="true" />
-    <!--- And the interpretation of your BMI-->
-    <TextView
-        android:id="@+id/bmiInterpretation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:text="Interpretation: --"
-        android:layout_below="@id/currentBmi"
-        android:layout_marginTop="12dp"
-        android:layout_centerHorizontal="true" />
-
-</RelativeLayout>
+</FrameLayout>

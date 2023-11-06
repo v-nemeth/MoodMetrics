@@ -1,37 +1,77 @@
 package com.example.moodmetrics;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-
-import com.example.moodmetrics.databinding.ActivityMainBinding;
-
-public class MainActivity extends AppCompatActivity {
-
-    private ActivityMainBinding binding;
+public class MainActivity extends AppCompatActivity implements BottomNavigationView
+        .OnNavigationItemSelectedListener{
+    BottomNavigationView bottomNavigationView;
+    Button bLogout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bLogout = findViewById(R.id.logoutButton);
 
-        BottomNavigationView navView = findViewById(R.id.nav_view);
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
-                .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-        NavigationUI.setupWithNavController(binding.navView, navController);
+        bottomNavigationView.setOnNavigationItemSelectedListener(this);
+        bottomNavigationView.setSelectedItemId(R.id.home_nav);
+
+        bLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
+    HomeFragment homeFragment = new HomeFragment();
+    MetricsFragment metricsFragment = new MetricsFragment();
+    MoodFragment moodFragment = new MoodFragment();
+    ArticlesFragment articlesFragment = new ArticlesFragment();
+
+
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.home_nav) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.flFragment, homeFragment)
+                    .commit();
+            return true;
+        } else if (item.getItemId() == R.id.metrics_nav) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.flFragment, metricsFragment)
+                    .commit();
+            return true;
+        } else if (item.getItemId() == R.id.mood_nav) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.flFragment, moodFragment)
+                    .commit();
+            return true;
+        } else if (item.getItemId() == R.id.articles_nav) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.flFragment, articlesFragment)
+                    .commit();
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

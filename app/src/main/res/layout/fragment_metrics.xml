@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MetricsFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BMI Calculator"
+            android:textSize="48sp"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true" />
+
+        <!-- Weight Input -->
+        <EditText
+            android:id="@+id/weightInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:layout_below="@id/title"
+            android:hint="Weight (kg)"
+            android:inputType="numberDecimal"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"/>
+
+        <!-- Height Input -->
+        <EditText
+            android:id="@+id/heightInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_below="@id/weightInput"
+            android:hint="Height (cm)"
+            android:inputType="numberDecimal"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"/>
+
+        <!-- Calculate Button -->
+        <Button
+            android:id="@+id/calculateButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:layout_below="@id/heightInput"
+            android:text="Calculate" />
+
+        <!-- BMI Result Display -->
+        <TextView
+            android:id="@+id/bmiResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="32dp"
+            android:layout_below="@id/calculateButton"
+            android:textSize="24sp"
+            android:text="Your BMI: --" />
+
+        <!-- BMI Interpretation Display -->
+        <TextView
+            android:id="@+id/bmiInterpretation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:layout_below="@id/bmiResult"
+            android:textSize="20sp"
+            android:text="Interpretation: --" />
+
+        <TextView
+            android:id="@+id/settingsIcon"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:gravity="center"
+            android:textSize="48sp"
+            android:text="⚙️"
+            android:background="?selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/bmiInterpretation"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="75dp"
+            android:text="Submit"
+            android:enabled="false" />
+
+
+    </RelativeLayout>
+
+</FrameLayout>
