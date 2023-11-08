@@ -109,8 +109,10 @@ public class MetricsFragment extends Fragment {
 
                     if (bmi < 18.5) {
                         String Interpretation = "UNDERWEIGHT";
-                    } else if (bmi<25) {
+                    } else if (bmi<23) {
                         String Interpretation = "NORMAL";
+                    } else if (bmi<25) {
+                        String Interpretation = "OVERWEIGHT";
                     } else if (bmi<30) {
                         String Interpretation = "OBESE";
                     } else if (35<bmi) {
@@ -126,8 +128,10 @@ public class MetricsFragment extends Fragment {
 
                     if (bmi < 18.5) {
                         String Interpretation = "UNDERWEIGHT";
-                    } else if (bmi<25) {
+                    } else if (bmi<23) {
                         String Interpretation = "NORMAL";
+                    } else if (bmi<25) {
+                        String Interpretation = "OVERWEIGHT";
                     } else if (bmi<30) {
                         String Interpretation = "OBESE";
                     } else if (35<bmi) {
