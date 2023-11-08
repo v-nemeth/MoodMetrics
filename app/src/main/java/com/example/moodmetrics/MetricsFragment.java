@@ -2,11 +2,19 @@ package com.example.moodmetrics;
 
 import android.os.Bundle;
 
-import androidx.fragment.app.Fragment;
 
-import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.EditText;
+import androidx.fragment.app.Fragment;
+import android.widget.Switch;
+import android.view.LayoutInflater;
 import android.view.ViewGroup;
+import android.view.View;
+
+
+import com.example.moodmetrics.R.id;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +22,20 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class MetricsFragment extends Fragment {
+
+    EditText eWeight, eHeight;
+    Button bCalculate, bSubmit;
+    Switch sw;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            mParam1 = getArguments().getString(ARG_PARAM1);
+            mParam2 = getArguments().getString(ARG_PARAM2);
+        }
+    }
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -47,18 +69,38 @@ public class MetricsFragment extends Fragment {
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_metrics, container, false);
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_metrics, container, false);
+        eWeight = view.findViewById(R.id.weightInput);
+        eHeight = view.findViewById(R.id.heightInput);
+        bCalculate = view.findViewById(R.id.calculateButton);
+        bSubmit = view.findViewById(R.id.submit);
+
+        sw = view.findViewById(R.id.unitToggle);
+
+        sw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton v, boolean isChecked) {
+                if (isChecked) {
+                    eWeight.setHint("Weight in Pound (lb)");
+                    eHeight.setHint("Height in Feet (ft)");
+                } else {
+                    eWeight.setHint("Weight (kg)");
+                    eHeight.setHint("Height (cm)");
+                }
+            }
+        });
+
+        bCalculate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Your calculation logic here
+            }
+        });
+
+        // Add onClickListener for bSubmit here...
+
+        return view;
     }
 }
