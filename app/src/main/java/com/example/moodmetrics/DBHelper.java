@@ -23,6 +23,7 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase MyDB) {
         MyDB.execSQL("create Table users (username TEXT primary key, password TEXT)");
+        MyDB.execSQL("create Table moodEntries (username TEXT primary key, mood TEXT, date TEXT)");
     }
 
     public Boolean insertData(String username, String password) {
@@ -79,8 +80,8 @@ public class DBHelper extends SQLiteOpenHelper {
            HashMap<String, Integer> moodEntries = new HashMap<>();
            if(cursor.moveToFirst()) {
                do {
-                   String date = cursor.getString(cursor.getColumnIndex("date"));
-                   String mood = cursor.getString(cursor.getColumnIndex("mood"));
+                   @SuppressLint("Range") String date = cursor.getString(cursor.getColumnIndex("date"));
+                   @SuppressLint("Range") String mood = cursor.getString(cursor.getColumnIndex("mood"));
                    moodEntries.put(date, Integer.parseInt(mood));
                } while (cursor.moveToNext());
            }

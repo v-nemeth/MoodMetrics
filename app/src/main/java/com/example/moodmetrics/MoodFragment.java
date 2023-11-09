@@ -108,7 +108,7 @@ public class MoodFragment extends Fragment {
 
                 DBHelper dbHelper = new DBHelper(getContext());
                 SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
-                dbHelper.addMoodEntryToDB(username, mood[0], date.toString());
+                dbHelper.addMoodEntryToDB(username, "1", "2023-09-04");
                 submit.setEnabled(false);
             }
         });

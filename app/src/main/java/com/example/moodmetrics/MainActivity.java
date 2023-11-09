@@ -22,6 +22,8 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
     private String username;
 
+    private DBHelper dbHelper;
+
     private TextView name;
 
     @Override
@@ -29,6 +31,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        dbHelper = new DBHelper(this);
         prf = getSharedPreferences("user_details",MODE_PRIVATE);
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         name = findViewById(R.id.name);
