@@ -1,5 +1,6 @@
 package com.example.moodmetrics;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,6 +8,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -59,6 +62,44 @@ public class ArticlesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_articles, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_articles, container, false);
+
+        // Find the ImageView by ID
+        ImageView articleImage1 = rootView.findViewById(R.id.articleImage1);
+        ImageView articleImage2 = rootView.findViewById(R.id.articleImage2);
+        TextView articleTitle1 = rootView.findViewById(R.id.Title_1);
+        TextView articleTitle2 = rootView.findViewById(R.id.Title_2);
+        TextView articleContent1 = rootView.findViewById(R.id.Content_1);
+        TextView articleContent2 = rootView.findViewById(R.id.Content_2);
+
+        // Create a common OnClickListener for both article images and text
+        View.OnClickListener clickListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Handle the click based on the clicked view
+                if (v == articleImage1 || v == articleTitle1 || v == articleContent1) {
+                    // Handle the click for the first article
+                    Intent intent = new Intent(getActivity(), ArticleDetailActivity.class);
+                    startActivity(intent);
+                } else if (v == articleImage2 || v == articleTitle2 || v == articleContent2) {
+                    // Handle the click for the second article
+                    // Can go to the new content pages if you want to.
+                    Intent intent = new Intent(getActivity(), ArticleDetailActivity.class);
+                    startActivity(intent);
+                }
+            }
+        };
+
+        // Set OnClickListener for the first article
+        articleImage1.setOnClickListener(clickListener);
+        articleTitle1.setOnClickListener(clickListener);
+        articleContent1.setOnClickListener(clickListener);
+
+        // Set OnClickListener for the second article
+        articleImage2.setOnClickListener(clickListener);
+        articleTitle2.setOnClickListener(clickListener);
+        articleContent2.setOnClickListener(clickListener);
+
+        return rootView;
     }
 }

@@ -43,6 +43,7 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="150dp"
+                        android:id="@+id/articleImage1"
                         android:scaleType="centerCrop"
                         android:src="@drawable/example_photo"
                         android:layout_marginBottom="8dp"
@@ -53,6 +54,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:id="@+id/Title_1"
                         android:text="The Benefits of Daily Exercise"
                         android:textSize="18sp"
                         android:textStyle="bold"/>
@@ -60,6 +62,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:id="@+id/Content_1"
                         android:text="Discover the many advantages of maintaining an active lifestyle, from boosting your mental health to reducing the risk of chronic diseases."
                         android:textSize="14sp"
                         android:layout_marginTop="8dp"/>
@@ -81,6 +84,7 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="150dp"
+                        android:id="@+id/articleImage2"
                         android:scaleType="centerCrop"
                         android:src="@drawable/example_photo"
                         android:layout_marginBottom="8dp"
@@ -91,6 +95,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:id="@+id/Title_2"
                         android:text="The Benefits of Daily Exercise"
                         android:textSize="18sp"
                         android:textStyle="bold"/>
@@ -98,6 +103,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:id="@+id/Content_2"
                         android:text="Discover the many advantages of maintaining an active lifestyle, from boosting your mental health to reducing the risk of chronic diseases."
                         android:textSize="14sp"
                         android:layout_marginTop="8dp"/>

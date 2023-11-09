@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".ArticleDetailActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/example_photo"
+                android:layout_marginBottom="8dp"
+                android:adjustViewBounds="true"
+                android:background="@drawable/rounded_images_background"
+                android:layout_gravity="center"
+                android:clipToOutline="true"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="The Benefits of Daily Exercise"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Discover the many advantages of maintaining an active lifestyle, from boosting your mental health to reducing the risk of chronic diseases."
+                android:textSize="14sp"
+                android:layout_marginTop="8dp"/>
+
+            <Button
+                android:id="@+id/Back_to_list_Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:text="Back"
+                android:layout_below="@id/monthlyMoodGrid"
+                android:layout_marginTop="30dp"
+                android:layout_gravity="center_horizontal" />
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>
