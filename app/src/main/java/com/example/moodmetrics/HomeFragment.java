@@ -5,12 +5,18 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridLayout;
 import android.widget.TextView;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,46 +26,18 @@ import java.util.Map;
  * create an instance of this fragment.
  */
 public class HomeFragment extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
     DBHelper DB;
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
     public HomeFragment() {
         // Required empty public constructor
     }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment HomeFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static HomeFragment newInstance(String param1, String param2) {
         HomeFragment fragment = new HomeFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
         return fragment;
     }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
     }
 
     @Override
@@ -70,21 +48,44 @@ public class HomeFragment extends Fragment {
 
         populateMoodGrid(DB.fetchMoodEntries("username"), view);
 
-
-        // Inflate the layout for this fragment
         return view;
     }
 
     private void populateMoodGrid(HashMap<String, Integer> moodEntries, View view){
         GridLayout gridLayout = view.findViewById(R.id.monthlyMoodGrid);
 
-        int i = 0;
-        for (Map.Entry<String, Integer> entry : moodEntries.entrySet()) {
-            if (i%7 == 0){
-                //TODO IMPLEMENT empty column
-            }
+        ArrayList<Pair<String, Integer>> sortedMoodList = generateSortedMoodList(moodEntries);
 
-            Integer moodValue = entry.getValue();
+        int i = 0;
+        String prevMonth = "";
+        for (Pair<String, Integer> moodEntry : sortedMoodList) {
+            String date = moodEntry.first;
+            int moodValue = moodEntry.second;
+
+            if (i%7 == 0){
+                TextView tv = new TextView(getContext());
+                tv.setLayoutParams(new ViewGroup.LayoutParams(
+                        ViewGroup.LayoutParams.WRAP_CONTENT,
+                        ViewGroup.LayoutParams.WRAP_CONTENT));
+
+                String currentMonth = date.substring(5,7);
+                System.out.println("CURRENTMONTH:"+currentMonth+" PREVMONTH: "+prevMonth);
+                System.out.println(currentMonth != prevMonth);
+                if(!currentMonth.equals(prevMonth)) {
+                    try {
+                        SimpleDateFormat monthParse = new SimpleDateFormat("MM");
+                        SimpleDateFormat monthDisplay = new SimpleDateFormat("MMM");
+                        tv.setText(monthDisplay.format(monthParse.parse(currentMonth)));
+                        gridLayout.addView(tv);
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                        tv.setText(currentMonth); // fallback to number if parsing fails
+                    }
+                    prevMonth = currentMonth;
+                } else {
+                    gridLayout.addView(new TextView(getContext()));
+                }
+            }
 
             View moodView = new View(getContext());
             GridLayout.LayoutParams params = new GridLayout.LayoutParams();
@@ -96,19 +97,19 @@ public class HomeFragment extends Fragment {
             // Set color based on moodValue, you can customize this part
             switch (moodValue) {
                 case 1:
-                    moodView.setBackgroundColor(Color.parseColor("#ebedf0"));
+                    moodView.setBackgroundColor(Color.parseColor("#fd4141"));
                     break;
                 case 2:
                     moodView.setBackgroundColor(Color.parseColor("#fd7575"));
                     break;
                 case 3:
-                    moodView.setBackgroundColor(Color.parseColor("#40c463"));
+                    moodView.setBackgroundColor(Color.parseColor("#ebedf0"));
                     break;
                 case 4:
                     moodView.setBackgroundColor(Color.parseColor("#9be9a8"));
                     break;
                 case 5:
-                    moodView.setBackgroundColor(Color.parseColor("#ffffff")); // Example for mood 5
+                    moodView.setBackgroundColor(Color.parseColor("#40c463"));
                     break;
                 default:
                     moodView.setBackgroundColor(Color.GRAY);
@@ -118,5 +119,56 @@ public class HomeFragment extends Fragment {
             gridLayout.addView(moodView);
             i++;
         }
+    }
+
+    private ArrayList<Pair<String, Integer>> generateSortedMoodList(HashMap<String, Integer> moodEntries){
+        // Create a list of all dates with default mood value
+        ArrayList<Pair<String, Integer>> sortedMoods = new ArrayList<>();
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar calendar = Calendar.getInstance();
+
+        try {
+            // Assuming the entries are within a known range, e.g., the last 90 days
+            calendar.add(Calendar.DAY_OF_YEAR, -calculateRangeDays());
+            Date startDate = calendar.getTime();
+            Date endDate = new Date(); // today
+
+            while (startDate.before(endDate) || startDate.equals(endDate)) {
+                String dateString = dateFormat.format(startDate);
+                // Default mood value is 0, or get from hashmap if present
+                int moodValue = moodEntries.getOrDefault(dateString, 0);
+                sortedMoods.add(new Pair<>(dateString, moodValue));
+                calendar.add(Calendar.DAY_OF_YEAR, 1);
+                startDate = calendar.getTime();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return sortedMoods;
+    }
+
+    //This method calculates
+    private int calculateRangeDays() {
+        Calendar calendar = Calendar.getInstance();
+
+        // Move back approximately 80 days
+        calendar.add(Calendar.DAY_OF_YEAR, -80);
+
+        // Adjust to the nearest previous Sunday
+        while (calendar.get(Calendar.DAY_OF_WEEK) != Calendar.SUNDAY) {
+            calendar.add(Calendar.DAY_OF_YEAR, -1);
+        }
+
+        // Calculate the number of days from this adjusted date to today
+        Calendar today = Calendar.getInstance();
+        int days = 0;
+        while (calendar.before(today) || calendar.equals(today)) {
+            calendar.add(Calendar.DAY_OF_YEAR, 1);
+            days++;
+        }
+
+        return days;
     }
 }
