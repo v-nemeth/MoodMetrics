@@ -46,7 +46,8 @@
             android:text="😞"
             android:background="?selectableItemBackground"
             android:clickable="true"
-            android:focusable="true" />
+            android:focusable="true"
+            />
         <TextView
             android:id="@+id/sadSmiley"
             android:layout_width="72dp"

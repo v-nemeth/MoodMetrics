@@ -61,32 +61,30 @@ public class DBHelper extends SQLiteOpenHelper {
         return null; // or you can throw an exception if you prefer
     }
 
-    public Boolean addMoodEntryToDB(String username, String mood, String date, String time) {
+    public Boolean addMoodEntryToDB(String username, String mood, String date) {
         SQLiteDatabase MyDB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("username", username);
         contentValues.put("mood", mood);
         contentValues.put("date", date);
-        contentValues.put("time", time);
         long result = MyDB.insert("moodEntries", null, contentValues);
         return result != -1;
     }
 
     public HashMap<String, Integer> fetchMoodEntries(String username){
-        return generateMockMoodEntries();
         // fetch the last 90 days of mood entries and return a hashmap of the dates and moods
 
-//        SQLiteDatabase MyDB = this.getReadableDatabase();
-//        Cursor cursor = MyDB.rawQuery("Select * from moodEntries where username = ?", new String[]{username});
-//        HashMap<String, Integer> moodEntries = new HashMap<>();
-//        if(cursor.moveToFirst()) {
-//            do {
-//                String date = cursor.getString(cursor.getColumnIndex("date"));
-//                String mood = cursor.getString(cursor.getColumnIndex("mood"));
-//                moodEntries.put(date, Integer.parseInt(mood));
-//            } while (cursor.moveToNext());
-//        }
-//        return moodEntries;
+           SQLiteDatabase MyDB = this.getReadableDatabase();
+           Cursor cursor = MyDB.rawQuery("Select * from moodEntries where username = ?", new String[]{username});
+           HashMap<String, Integer> moodEntries = new HashMap<>();
+           if(cursor.moveToFirst()) {
+               do {
+                   String date = cursor.getString(cursor.getColumnIndex("date"));
+                   String mood = cursor.getString(cursor.getColumnIndex("mood"));
+                   moodEntries.put(date, Integer.parseInt(mood));
+               } while (cursor.moveToNext());
+           }
+           return moodEntries;
 
     }
 

@@ -5,10 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -16,14 +18,28 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         .OnNavigationItemSelectedListener{
     BottomNavigationView bottomNavigationView;
     Button bLogout;
+    SharedPreferences prf;
+
+    private String username;
+
+    private TextView name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        prf = getSharedPreferences("user_details",MODE_PRIVATE);
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        name = findViewById(R.id.name);
+        username = prf.getString("username", null);
+        name.setText(username);
         bLogout = findViewById(R.id.logoutButton);
+
+        homeFragment = new HomeFragment();
+        metricsFragment = new MetricsFragment();
+        moodFragment = new MoodFragment(username);
+        articlesFragment = new ArticlesFragment();
 
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
         bottomNavigationView.setSelectedItemId(R.id.home_nav);
@@ -37,10 +53,10 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         });
     }
 
-    HomeFragment homeFragment = new HomeFragment();
-    MetricsFragment metricsFragment = new MetricsFragment();
-    MoodFragment moodFragment = new MoodFragment();
-    ArticlesFragment articlesFragment = new ArticlesFragment();
+    HomeFragment homeFragment;
+    MetricsFragment metricsFragment;
+    MoodFragment moodFragment;
+    ArticlesFragment articlesFragment;
 
 
 
@@ -73,5 +89,9 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         } else {
             return false;
         }
+    }
+
+    public String getUsername() {
+        return username;
     }
 }

@@ -3,6 +3,7 @@ package com.example.moodmetrics;
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -32,6 +33,8 @@ public class LoginActivity extends AppCompatActivity {
     DBHelper DB;
     static String tmpName;
 
+    SharedPreferences pref;
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +47,7 @@ public class LoginActivity extends AppCompatActivity {
         signInBTN = findViewById(R.id.signIn);
         registerBTN = findViewById(R.id.register);
         forgotPasswordBTN = findViewById(R.id.forgotPassword);
+        pref = getSharedPreferences("user_details",MODE_PRIVATE);
 
         errorMsg.setVisibility(View.INVISIBLE);
 
@@ -52,12 +56,17 @@ public class LoginActivity extends AppCompatActivity {
         signInBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String username = inputID.getText().toString();
                 String password = inputPass.getText().toString();
                 tmpName=username;
 
                 if (DB.checkusernamePassword(username, password)) {
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    SharedPreferences.Editor editor = pref.edit();
+                    editor.putString("username",username);
+                    editor.putString("password",password);
+                    editor.commit();
                     startActivity(intent);
                     errorMsg.setVisibility(View.INVISIBLE);
                 } else {
