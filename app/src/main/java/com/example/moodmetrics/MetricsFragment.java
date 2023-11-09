@@ -11,11 +11,8 @@ import androidx.fragment.app.Fragment;
 import android.widget.Switch;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import android.view.View;
 import android.widget.TextView;
-
-
-import com.example.moodmetrics.R.id;
+import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,7 +21,7 @@ import com.example.moodmetrics.R.id;
  */
 public class MetricsFragment extends Fragment {
 
-    TextView tResult;
+    TextView tResult, tInter;
     EditText eWeight, eHeight;
     Button bCalculate, bSubmit;
     Switch sw;
@@ -79,6 +76,7 @@ public class MetricsFragment extends Fragment {
         bCalculate = view.findViewById(R.id.calculateButton);
         bSubmit = view.findViewById(R.id.submit);
         tResult = view.findViewById(R.id.bmiResult);
+        tInter = view.findViewById(R.id.bmiInterpretation);
 
         sw = view.findViewById(R.id.unitToggle);
 
@@ -100,43 +98,30 @@ public class MetricsFragment extends Fragment {
         bCalculate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                try {
                 if (sw.isChecked() == false) {
-                    double number1 = Double.parseDouble(eWeight.getText().toString());
-                    double number2 = Double.parseDouble(eHeight.getText().toString());
-                    double bmi = (number1 / (number2 * number2)) * 10000;
-                    String sumBMI = String.format("%.2f", bmi);
-                    tResult.setText(String.valueOf("Your BMI: "+ sumBMI));
+                        double number1 = Double.parseDouble(eWeight.getText().toString());
+                        double number2 = Double.parseDouble(eHeight.getText().toString());
+                        double bmi = (number1 / (number2 * number2)) * 10000;
+                        String sumBMI = String.format("%.2f", bmi);
+                        tResult.setText(String.valueOf("Your BMI: " + sumBMI));
 
-                    if (bmi < 18.5) {
-                        String Interpretation = "UNDERWEIGHT";
-                    } else if (bmi<23) {
-                        String Interpretation = "NORMAL";
-                    } else if (bmi<25) {
-                        String Interpretation = "OVERWEIGHT";
-                    } else if (bmi<30) {
-                        String Interpretation = "OBESE";
-                    } else if (35<bmi) {
-                        String Interpretation = "EXTREMELY OBESE";
+                        String inPre = Interpretation(bmi);
+                        tInter.setText("Interpretation: " + inPre);
+
+                    } else if (sw.isChecked() == true){
+                        double num1 = Double.parseDouble(eWeight.getText().toString());
+                        double num2 = Double.parseDouble(eHeight.getText().toString());
+                        double bmi = (num1 / (num2 * num2)) * 703;
+                        String sumBMI = String.format("%.2f", bmi);
+                        tResult.setText(String.valueOf("Your BMI: " + sumBMI));
+
+                        String inPre = Interpretation(bmi);
+                        tInter.setText("Interpretation: " + inPre);
                     }
-
-                } else {
-                    double num1 = Double.parseDouble(eWeight.getText().toString());
-                    double num2 = Double.parseDouble(eHeight.getText().toString());
-                    double bmi = (num1 / (num2 * num2)) * 703;
-                    String sumBMI = String.format("%.2f", bmi);
-                    tResult.setText(String.valueOf("Your BMI: "+ sumBMI));
-
-                    if (bmi < 18.5) {
-                        String Interpretation = "UNDERWEIGHT";
-                    } else if (bmi<23) {
-                        String Interpretation = "NORMAL";
-                    } else if (bmi<25) {
-                        String Interpretation = "OVERWEIGHT";
-                    } else if (bmi<30) {
-                        String Interpretation = "OBESE";
-                    } else if (35<bmi) {
-                        String Interpretation = "EXTREMELY OBESE";
-                    }
+                } catch(Exception e) {
+                    Toast.makeText(getActivity(), "Please Enter A Value", Toast.LENGTH_SHORT).show();
+                    return;
                 }
             }
         });
@@ -144,5 +129,25 @@ public class MetricsFragment extends Fragment {
         // Add onClickListener for bSubmit here...
 
         return view;
+    }
+
+    public String Interpretation(double BMI_S) {
+        if (BMI_S < 18.5) {
+            String result = "UNDERWEIGHT";
+            return result;
+        } else if (BMI_S<23) {
+            String result = "NORMAL";
+            return result;
+        } else if (BMI_S<25) {
+            String result = "OVERWEIGHT";
+            return result;
+        } else if (BMI_S<30) {
+            String result = "OBESE";
+            return result;
+        } else if (35<BMI_S) {
+            String result = "EXTREMELY OBESE";
+            return result;
+        }
+        return null;
     }
 }
