@@ -1,5 +1,6 @@
 package com.example.moodmetrics;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,6 +8,11 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.GridLayout;
+import android.widget.TextView;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -19,6 +25,7 @@ public class HomeFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    DBHelper DB;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -58,7 +65,58 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        DB = new DBHelper(getContext());
+
+        populateMoodGrid(DB.fetchMoodEntries("username"), view);
+
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        return view;
+    }
+
+    private void populateMoodGrid(HashMap<String, Integer> moodEntries, View view){
+        GridLayout gridLayout = view.findViewById(R.id.monthlyMoodGrid);
+
+        int i = 0;
+        for (Map.Entry<String, Integer> entry : moodEntries.entrySet()) {
+            if (i%7 == 0){
+                //TODO IMPLEMENT empty column
+            }
+
+            Integer moodValue = entry.getValue();
+
+            View moodView = new View(getContext());
+            GridLayout.LayoutParams params = new GridLayout.LayoutParams();
+            params.width = (int) getResources().getDimension(R.dimen.mood_view_size);
+            params.height = (int) getResources().getDimension(R.dimen.mood_view_size);
+            params.setMargins(4, 4, 4, 4);
+            moodView.setLayoutParams(params);
+
+            // Set color based on moodValue, you can customize this part
+            switch (moodValue) {
+                case 1:
+                    moodView.setBackgroundColor(Color.parseColor("#ebedf0"));
+                    break;
+                case 2:
+                    moodView.setBackgroundColor(Color.parseColor("#fd7575"));
+                    break;
+                case 3:
+                    moodView.setBackgroundColor(Color.parseColor("#40c463"));
+                    break;
+                case 4:
+                    moodView.setBackgroundColor(Color.parseColor("#9be9a8"));
+                    break;
+                case 5:
+                    moodView.setBackgroundColor(Color.parseColor("#ffffff")); // Example for mood 5
+                    break;
+                default:
+                    moodView.setBackgroundColor(Color.GRAY);
+                    break;
+            }
+
+            gridLayout.addView(moodView);
+            i++;
+        }
     }
 }

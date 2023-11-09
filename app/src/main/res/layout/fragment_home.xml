@@ -72,367 +72,368 @@
                 android:text="" />
 
 
+
             <!-- You can repeat such views to represent days -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="" />
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="" />-->
 
-            <View
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_margin="4dp"
-                android:background="#ebedf0" />
+<!--            <View-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:background="#ebedf0" />-->
 
-            <View
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_margin="4dp"
-                android:background="#fd7575" />
+<!--            <View-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:background="#fd7575" />-->
 
-            <View
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_margin="4dp"
-                android:background="#40c463" />
+<!--            <View-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:background="#40c463" />-->
 
-            <View
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_margin="4dp"
-                android:background="#ebedf0" />
+<!--            <View-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:background="#ebedf0" />-->
 
-            <View
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_margin="4dp"
-                android:background="#9be9a8" />
+<!--            <View-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:background="#9be9a8" />-->
 
-            <View
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_margin="4dp"
-                android:background="#40c463" />
+<!--            <View-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:background="#40c463" />-->
 
-            <View
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_margin="4dp"
-                android:background="#ebedf0" />
+<!--            <View-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:background="#ebedf0" />-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Aug" />
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Aug" />-->
 
-            <View
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_margin="4dp"
-                android:background="#fd7575" />
+<!--            <View-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:background="#fd7575" />-->
 
-            <View
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_margin="4dp"
-                android:background="#9be9a8" />
+<!--            <View-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:background="#9be9a8" />-->
 
-            <View
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_margin="4dp"
-                android:background="#40c463" />
+<!--            <View-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:background="#40c463" />-->
 
-            <View
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_margin="4dp"
-                android:background="#ebedf0" />
+<!--            <View-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:background="#ebedf0" />-->
 
-            <View
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_margin="4dp"
-                android:background="#9be9a8" />
+<!--            <View-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:background="#9be9a8" />-->
 
-            <View
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_margin="4dp"
-                android:background="#40c463" />
+<!--            <View-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:background="#40c463" />-->
 
-            <View
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_margin="4dp"
-                android:background="#ebedf0" />
+<!--            <View-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:background="#ebedf0" />-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="" />
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="" />-->
 
-            <View
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_margin="4dp"
-                android:background="#fd7575" />
+<!--            <View-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:background="#fd7575" />-->
 
-            <View
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_margin="4dp"
-                android:background="#fd7575" />
+<!--            <View-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:background="#fd7575" />-->
 
-            <View
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_margin="4dp"
-                android:background="#ebedf0" />
+<!--            <View-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:background="#ebedf0" />-->
 
-            <View
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_margin="4dp"
-                android:background="#fd4141" />
+<!--            <View-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:background="#fd4141" />-->
 
-            <View
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_margin="4dp"
-                android:background="#9be9a8" />
+<!--            <View-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:background="#9be9a8" />-->
 
-            <View
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_margin="4dp"
-                android:background="#fdaaaa" />
+<!--            <View-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:background="#fdaaaa" />-->
 
-            <View
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_margin="4dp"
-                android:background="#fdaaaa" />
+<!--            <View-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:background="#fdaaaa" />-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="" />
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="" />-->
 
-            <View
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_margin="4dp"
-                android:background="#fdaaaa" />
+<!--            <View-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:background="#fdaaaa" />-->
 
-            <View
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_margin="4dp"
-                android:background="#9be9a8" />
+<!--            <View-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:background="#9be9a8" />-->
 
-            <View
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_margin="4dp"
-                android:background="#40c463" />
+<!--            <View-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:background="#40c463" />-->
 
-            <View
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_margin="4dp"
-                android:background="#40c463" />
+<!--            <View-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:background="#40c463" />-->
 
-            <View
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_margin="4dp"
-                android:background="#40c463" />
+<!--            <View-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:background="#40c463" />-->
 
-            <View
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_margin="4dp"
-                android:background="#40c463" />
+<!--            <View-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:background="#40c463" />-->
 
-            <View
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_margin="4dp"
-                android:background="#ebedf0" />
+<!--            <View-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:background="#ebedf0" />-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Sep" />
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Sep" />-->
 
-            <View
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_margin="4dp"
-                android:background="#ebedf0" />
+<!--            <View-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:background="#ebedf0" />-->
 
-            <View
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_margin="4dp"
-                android:background="#9be9a8" />
+<!--            <View-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:background="#9be9a8" />-->
 
-            <View
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_margin="4dp"
-                android:background="#40c463" />
+<!--            <View-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:background="#40c463" />-->
 
-            <View
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_margin="4dp"
-                android:background="#ebedf0" />
+<!--            <View-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:background="#ebedf0" />-->
 
-            <View
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_margin="4dp"
-                android:background="#9be9a8" />
+<!--            <View-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:background="#9be9a8" />-->
 
-            <View
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_margin="4dp"
-                android:background="#40c463" />
+<!--            <View-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:background="#40c463" />-->
 
-            <View
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_margin="4dp"
-                android:background="#ebedf0" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="" />
+<!--            <View-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:background="#ebedf0" />-->
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="" />-->
 
-            <View
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_margin="4dp"
-                android:background="#ebedf0" />
+<!--            <View-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:background="#ebedf0" />-->
 
-            <View
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_margin="4dp"
-                android:background="#9be9a8" />
+<!--            <View-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:background="#9be9a8" />-->
 
-            <View
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_margin="4dp"
-                android:background="#fdaaaa" />
+<!--            <View-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:background="#fdaaaa" />-->
 
-            <View
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_margin="4dp"
-                android:background="#fdaaaa" />
+<!--            <View-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:background="#fdaaaa" />-->
 
-            <View
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_margin="4dp"
-                android:background="#9be9a8" />
+<!--            <View-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:background="#9be9a8" />-->
 
-            <View
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_margin="4dp"
-                android:background="#40c463" />
+<!--            <View-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:background="#40c463" />-->
 
-            <View
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_margin="4dp"
-                android:background="#ebedf0" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="" />
+<!--            <View-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:background="#ebedf0" />-->
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="" />-->
 
-            <View
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_margin="4dp"
-                android:background="#ebedf0" />
+<!--            <View-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:background="#ebedf0" />-->
 
-            <View
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_margin="4dp"
-                android:background="#9be9a8" />
+<!--            <View-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:background="#9be9a8" />-->
 
-            <View
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_margin="4dp"
-                android:background="#fdaaaa" />
+<!--            <View-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:background="#fdaaaa" />-->
 
-            <View
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_margin="4dp"
-                android:background="#ebedf0" />
+<!--            <View-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:background="#ebedf0" />-->
 
-            <View
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_margin="4dp"
-                android:background="#fdaaaa" />
+<!--            <View-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:background="#fdaaaa" />-->
 
-            <View
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_margin="4dp"
-                android:background="#40c463" />
+<!--            <View-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:background="#40c463" />-->
 
-            <View
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_margin="4dp"
-                android:background="#ebedf0" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Oct" />
+<!--            <View-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:background="#ebedf0" />-->
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Oct" />-->
 
-            <View
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_margin="4dp"
-                android:background="#ebedf0" />
+<!--            <View-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:background="#ebedf0" />-->
 
-            <View
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_margin="4dp"
-                android:background="#9be9a8" />
+<!--            <View-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:background="#9be9a8" />-->
 
-            <View
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_margin="4dp"
-                android:background="#40c463" />
+<!--            <View-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:background="#40c463" />-->
 
-            <View
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_margin="4dp"
-                android:background="#ebedf0" />
+<!--            <View-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:background="#ebedf0" />-->
 
-            <View
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_margin="4dp"
-                android:background="#9be9a8" />
+<!--            <View-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:background="#9be9a8" />-->
         </GridLayout>
 
         <Button

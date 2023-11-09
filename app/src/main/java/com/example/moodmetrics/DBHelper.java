@@ -7,6 +7,11 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Random;
+
 public class DBHelper extends SQLiteOpenHelper {
 
     public static final String DBNAME = "Login.db";
@@ -54,5 +59,55 @@ public class DBHelper extends SQLiteOpenHelper {
             return cursor.getString(cursor.getColumnIndex("password"));
         }
         return null; // or you can throw an exception if you prefer
+    }
+
+    public Boolean addMoodEntryToDB(String username, String mood, String date, String time) {
+        SQLiteDatabase MyDB = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("username", username);
+        contentValues.put("mood", mood);
+        contentValues.put("date", date);
+        contentValues.put("time", time);
+        long result = MyDB.insert("moodEntries", null, contentValues);
+        return result != -1;
+    }
+
+    public HashMap<String, Integer> fetchMoodEntries(String username){
+        return generateMockMoodEntries();
+        // fetch the last 90 days of mood entries and return a hashmap of the dates and moods
+
+//        SQLiteDatabase MyDB = this.getReadableDatabase();
+//        Cursor cursor = MyDB.rawQuery("Select * from moodEntries where username = ?", new String[]{username});
+//        HashMap<String, Integer> moodEntries = new HashMap<>();
+//        if(cursor.moveToFirst()) {
+//            do {
+//                String date = cursor.getString(cursor.getColumnIndex("date"));
+//                String mood = cursor.getString(cursor.getColumnIndex("mood"));
+//                moodEntries.put(date, Integer.parseInt(mood));
+//            } while (cursor.moveToNext());
+//        }
+//        return moodEntries;
+
+    }
+
+    private HashMap<String, Integer> generateMockMoodEntries() {
+        HashMap<String, Integer> mockData = new HashMap<>();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-mm-yyyy");
+        Calendar cal = Calendar.getInstance();
+
+        Random random = new Random();
+
+        for (int i = 0; i < 20; i++) {
+            // Set the calendar to 20 days ago and then increment each day
+            cal.add(Calendar.DATE, -19 + i);
+            String date = sdf.format(cal.getTime());
+
+            // Generate a random mood value between 1 and 5
+            int moodValue = 1 + random.nextInt(5);
+
+            mockData.put(date, moodValue);
+        }
+
+        return mockData;
     }
 }
