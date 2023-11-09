@@ -90,21 +90,19 @@ public class DBHelper extends SQLiteOpenHelper {
 
     private HashMap<String, Integer> generateMockMoodEntries() {
         HashMap<String, Integer> mockData = new HashMap<>();
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-mm-yyyy");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Calendar cal = Calendar.getInstance();
 
         Random random = new Random();
 
         for (int i = 0; i < 20; i++) {
-            // Set the calendar to 20 days ago and then increment each day
-            cal.add(Calendar.DATE, -19 + i);
-            String date = sdf.format(cal.getTime());
-
-            // Generate a random mood value between 1 and 5
+            Calendar tempCal = (Calendar) cal.clone(); // Clone the original calendar
+            tempCal.add(Calendar.DATE, -19 + i); // Subtract 19 days once, then increment each day
+            String date = sdf.format(tempCal.getTime());
             int moodValue = 1 + random.nextInt(5);
-
             mockData.put(date, moodValue);
         }
+
 
         return mockData;
     }
