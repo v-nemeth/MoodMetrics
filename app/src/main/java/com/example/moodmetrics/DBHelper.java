@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Random;
 
@@ -31,7 +32,7 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase MyDB) {
         MyDB.execSQL("create Table users (username TEXT primary key, password TEXT)");
-        MyDB.execSQL("create Table moodEntries (username TEXT primary key, mood TEXT, date TEXT)");
+        MyDB.execSQL("create Table moodEntries (username TEXT, mood TEXT, date TEXT)");
     }
 
     public Boolean insertData(String username, String password) {
@@ -70,12 +71,14 @@ public class DBHelper extends SQLiteOpenHelper {
         return null; // or you can throw an exception if you prefer
     }
 
-    public Boolean addMoodEntryToDB(String username, String mood, String date) {
+    public Boolean addMoodEntryToDB(String username, String mood, Date date) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String dateString = sdf.format(date);
         SQLiteDatabase MyDB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("username", username);
         contentValues.put("mood", mood);
-        contentValues.put("date", date);
+        contentValues.put("date", dateString);
         long result = MyDB.insert("moodEntries", null, contentValues);
         return result != -1;
     }

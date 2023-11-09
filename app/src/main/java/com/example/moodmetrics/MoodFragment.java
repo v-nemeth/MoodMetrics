@@ -27,7 +27,7 @@ public class MoodFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    private TextView sad, saddest, neutral, happy, happiest;
+    private TextView sad, saddest, neutral, happy, happiest, date;
 
     private Button submit;
 
@@ -64,6 +64,8 @@ public class MoodFragment extends Fragment {
         happy   = (TextView) view.findViewById(R.id.happySmiley);
         happiest= (TextView) view.findViewById(R.id.happiestSmiley);
         submit  = (Button)   view.findViewById(R.id.submit);
+        date    = (TextView) view.findViewById(R.id.date);
+        date.setText(new SimpleDateFormat("dd. MMMM yyyy - hh:mm").format(new Date()));
 
 
         saddest.setOnClickListener(new View.OnClickListener() {
@@ -107,8 +109,8 @@ public class MoodFragment extends Fragment {
             public void onClick(View v) {
 
                 DBHelper dbHelper = DBHelper.getInstance(getContext());
-                SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
-                dbHelper.addMoodEntryToDB(username, "1", "2023-09-04");
+                Date date = new Date();
+                dbHelper.addMoodEntryToDB(username, mood[0], date);
                 submit.setEnabled(false);
             }
         });

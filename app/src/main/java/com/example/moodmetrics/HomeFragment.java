@@ -21,19 +21,11 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link HomeFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class HomeFragment extends Fragment {
     DBHelper DB;
-    public HomeFragment() {
-        // Required empty public constructor
-    }
-    public static HomeFragment newInstance(String param1, String param2) {
-        HomeFragment fragment = new HomeFragment();
-        return fragment;
+    String username;
+    public HomeFragment(String u) {
+        this.username = u;
     }
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -46,7 +38,7 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         DB = DBHelper.getInstance(getContext());
 
-        populateMoodGrid(DB.fetchMoodEntries("viktor"), view);
+        populateMoodGrid(DB.fetchMoodEntries(username), view);
 
         return view;
     }
