@@ -15,9 +15,17 @@ import java.util.Random;
 public class DBHelper extends SQLiteOpenHelper {
 
     public static final String DBNAME = "Login.db";
+    private static DBHelper instance;
 
-    public DBHelper(Context context) {
+    private DBHelper(Context context) {
         super(context, DBNAME, null, 1);
+    }
+
+    public static synchronized DBHelper getInstance(Context context) {
+        if (instance == null) {
+            instance = new DBHelper(context.getApplicationContext());
+        }
+        return instance;
     }
 
     @Override

@@ -51,7 +51,7 @@ public class LoginActivity extends AppCompatActivity {
 
         errorMsg.setVisibility(View.INVISIBLE);
 
-        DB = new DBHelper(this);
+        DB = DBHelper.getInstance(this);
 
         signInBTN.setOnClickListener(new View.OnClickListener() {
             @Override

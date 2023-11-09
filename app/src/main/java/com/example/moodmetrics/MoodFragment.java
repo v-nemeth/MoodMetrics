@@ -106,7 +106,7 @@ public class MoodFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                DBHelper dbHelper = new DBHelper(getContext());
+                DBHelper dbHelper = DBHelper.getInstance(getContext());
                 SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
                 dbHelper.addMoodEntryToDB(username, "1", "2023-09-04");
                 submit.setEnabled(false);
