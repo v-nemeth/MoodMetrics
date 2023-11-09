@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.util.Pair;
 import android.view.LayoutInflater;
@@ -37,7 +38,6 @@ public class HomeFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
@@ -46,7 +46,7 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         DB = DBHelper.getInstance(getContext());
 
-        populateMoodGrid(DB.fetchMoodEntries("username"), view);
+        populateMoodGrid(DB.fetchMoodEntries("viktor"), view);
 
         return view;
     }
