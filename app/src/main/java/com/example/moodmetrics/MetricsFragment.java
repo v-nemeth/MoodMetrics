@@ -137,14 +137,11 @@ public class MetricsFragment extends Fragment {
             }
         });
 
-        bSubmit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DBHelper dbHelper = DBHelper.getInstance(getContext());
-                dbHelper.addBmiEntryToDB(username, bmi, new Date());
-                Toast.makeText(getActivity(), "Your BMI Result is Saved", Toast.LENGTH_SHORT).show();
-                bSubmit.setEnabled(false);
-            }
+        bSubmit.setOnClickListener(v -> {
+            DBHelper dbHelper = DBHelper.getInstance(getContext());
+            dbHelper.addBmiEntryToDB(username, bmi, new Date());
+            Toast.makeText(getActivity(), "Your BMI Result is Saved", Toast.LENGTH_SHORT).show();
+            bSubmit.setEnabled(false);
         });
 
         return view;
