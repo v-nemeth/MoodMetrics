@@ -33,6 +33,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase MyDB) {
         MyDB.execSQL("create Table users (username TEXT primary key, password TEXT)");
         MyDB.execSQL("create Table moodEntries (username TEXT, mood TEXT, date TEXT)");
+        MyDB.execSQL("create Table bmiEntries (username TEXT, bmi REAL, date TEXT)");
     }
 
     public Boolean insertData(String username, String password) {
@@ -117,5 +118,38 @@ public class DBHelper extends SQLiteOpenHelper {
 
 
         return mockData;
+    }
+
+    public Boolean addBmiEntryToDB(String username, double bmi, Date date) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String dateString = sdf.format(date);
+        SQLiteDatabase MyDB = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("username", username);
+        contentValues.put("bmi", bmi);
+        contentValues.put("date", dateString);
+        long result = MyDB.insert("bmiEntries", null, contentValues);
+        return result != -1;
+    }
+
+    public HashMap<String, Double> fetchBmiEntries(String username) {
+        SQLiteDatabase MyDB = this.getReadableDatabase();
+        Cursor cursor = MyDB.rawQuery("Select * from bmiEntries where username = ?", new String[]{username});
+        HashMap<String, Double> bmiEntries = new HashMap<>();
+        if (cursor.moveToFirst()) {
+            do {
+                @SuppressLint("Range") String date = cursor.getString(cursor.getColumnIndex("date"));
+                @SuppressLint("Range") double bmi = cursor.getDouble(cursor.getColumnIndex("bmi"));
+                bmiEntries.put(date, bmi);
+            } while (cursor.moveToNext());
+        }
+        return bmiEntries;
+    }
+
+    public Cursor fetchLatestBmiEntry(String username) {
+        SQLiteDatabase MyDB = this.getReadableDatabase();
+
+        Cursor cursor = MyDB.rawQuery("SELECT * FROM bmiEntries WHERE username = ? ORDER BY date DESC LIMIT 1", new String[]{username});
+        return cursor;
     }
 }

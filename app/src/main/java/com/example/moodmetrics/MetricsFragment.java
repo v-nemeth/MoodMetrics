@@ -14,6 +14,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Date;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link MetricsFragment#newInstance} factory method to
@@ -25,6 +27,13 @@ public class MetricsFragment extends Fragment {
     EditText eWeight, eHeight;
     Button bCalculate, bSubmit;
     Switch sw;
+
+    double bmi = 0;
+
+    private String username;
+    public MetricsFragment(String u) {
+        this.username = u;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -95,6 +104,7 @@ public class MetricsFragment extends Fragment {
             }
         });
 
+
         bCalculate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -102,7 +112,7 @@ public class MetricsFragment extends Fragment {
                 if (sw.isChecked() == false) {
                         double number1 = Double.parseDouble(eWeight.getText().toString());
                         double number2 = Double.parseDouble(eHeight.getText().toString());
-                        double bmi = (number1 / (number2 * number2)) * 10000;
+                        bmi = (number1 / (number2 * number2)) * 10000;
                         String sumBMI = String.format("%.2f", bmi);
                         tResult.setText(String.valueOf("Your BMI: " + sumBMI));
 
@@ -112,13 +122,14 @@ public class MetricsFragment extends Fragment {
                     } else if (sw.isChecked() == true){
                         double num1 = Double.parseDouble(eWeight.getText().toString());
                         double num2 = Double.parseDouble(eHeight.getText().toString());
-                        double bmi = (num1 / (num2 * num2)) * 703;
+                        bmi = (num1 / (num2 * num2)) * 703;
                         String sumBMI = String.format("%.2f", bmi);
                         tResult.setText(String.valueOf("Your BMI: " + sumBMI));
 
                         String inPre = Interpretation(bmi);
                         tInter.setText("Interpretation: " + inPre);
                     }
+                    bSubmit.setEnabled(true);
                 } catch(Exception e) {
                     Toast.makeText(getActivity(), "Please Enter A Value", Toast.LENGTH_SHORT).show();
                     return;
@@ -126,12 +137,23 @@ public class MetricsFragment extends Fragment {
             }
         });
 
-        // Add onClickListener for bSubmit here...
+        bSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DBHelper dbHelper = DBHelper.getInstance(getContext());
+                dbHelper.addBmiEntryToDB(username, bmi, new Date());
+                Toast.makeText(getActivity(), "Your BMI Result is Saved", Toast.LENGTH_SHORT).show();
+                bSubmit.setEnabled(false);
+            }
+        });
 
         return view;
+
+
+
     }
 
-    public String Interpretation(double BMI_S) {
+    public static String Interpretation(double BMI_S) {
         if (BMI_S < 18.5) {
             String result = "UNDERWEIGHT";
             return result;
@@ -150,4 +172,6 @@ public class MetricsFragment extends Fragment {
         }
         return null;
     }
+
+
 }

@@ -1,11 +1,14 @@
 package com.example.moodmetrics;
 
+import android.annotation.SuppressLint;
+import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import android.util.Log;
 import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,7 +43,26 @@ public class HomeFragment extends Fragment {
 
         populateMoodGrid(DB.fetchMoodEntries(username), view);
 
+        //BMI parts
+        vBMI(view);
+
         return view;
+    }
+
+    private void vBMI(View view){
+        Cursor cursor = DB.fetchLatestBmiEntry(username);
+        if (cursor.moveToFirst()) {
+            @SuppressLint("Range") double latestBmi = cursor.getDouble(cursor.getColumnIndex("bmi"));
+            @SuppressLint("Range") String date = cursor.getString(cursor.getColumnIndex("date"));
+            TextView currentBmi = view.findViewById(R.id.currentBmi);
+            TextView bmiInterpretation = view.findViewById(R.id.bmiInterpretation);
+            currentBmi.setText("Your current BMI: "+latestBmi);
+            bmiInterpretation.setText("Interpretation:"+ MetricsFragment.Interpretation(latestBmi));
+            Log.d("Latest BMI", "BMI: " + latestBmi + ", Date: " + date);
+        } else {
+            Log.d("Latest BMI", "No BMI entry found");
+        }
+        cursor.close();
     }
 
     private void populateMoodGrid(HashMap<String, Integer> moodEntries, View view){
@@ -163,4 +185,6 @@ public class HomeFragment extends Fragment {
 
         return days;
     }
+
+
 }
