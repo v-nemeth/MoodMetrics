@@ -6,6 +6,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -119,16 +120,17 @@ public class DBHelper extends SQLiteOpenHelper {
         return mockData;
     }
 
-    public Boolean addBmiEntryToDB(String username, double bmi, Date date) {
+    @SuppressLint("SimpleDateFormat")
+    public void addBmiEntryToDB(String username, double bmi, Date date) {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String dateString = sdf.format(date);
+        Log.d("Database", "Inserting BMI entry: Username=" + username + ", BMI=" + bmi + ", Date=" + dateString);
         SQLiteDatabase MyDB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("username", username);
         contentValues.put("bmi", bmi);
         contentValues.put("date", dateString);
-        long result = MyDB.insert("bmiEntries", null, contentValues);
-        return result != -1;
+        MyDB.insert("bmiEntries", null, contentValues);
     }
 
     public HashMap<String, Double> fetchBmiEntries(String username) {
@@ -149,6 +151,7 @@ public class DBHelper extends SQLiteOpenHelper {
         SQLiteDatabase MyDB = this.getReadableDatabase();
 
         Cursor cursor = MyDB.rawQuery("SELECT * FROM bmiEntries WHERE username = ? ORDER BY date DESC LIMIT 1", new String[]{username});
+
         return cursor;
     }
 }
