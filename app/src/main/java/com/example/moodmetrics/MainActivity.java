@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         bLogout = findViewById(R.id.logoutButton);
 
         homeFragment = new HomeFragment(username);
-        metricsFragment = new MetricsFragment();
+        metricsFragment = new MetricsFragment(username);
         moodFragment = new MoodFragment(username);
         articlesFragment = new ArticlesFragment();
 

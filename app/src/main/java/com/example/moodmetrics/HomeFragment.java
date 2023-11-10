@@ -57,7 +57,7 @@ public class HomeFragment extends Fragment {
             TextView currentBmi = view.findViewById(R.id.currentBmi);
             TextView bmiInterpretation = view.findViewById(R.id.bmiInterpretation);
             currentBmi.setText("Your current BMI: "+latestBmi);
-            bmiInterpretation.setText("Interpretation:"+ MetricsFragment.Interpretation(latestBmi));
+            bmiInterpretation.setText("Interpretation: "+ MetricsFragment.Interpretation(latestBmi));
             Log.d("Latest BMI", "BMI: " + latestBmi + ", Date: " + date);
         } else {
             Log.d("Latest BMI", "No BMI entry found");

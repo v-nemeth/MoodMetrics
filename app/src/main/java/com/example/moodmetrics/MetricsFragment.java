@@ -22,18 +22,15 @@ import java.util.Date;
  * create an instance of this fragment.
  */
 public class MetricsFragment extends Fragment {
+    String username;
 
     TextView tResult, tInter;
     EditText eWeight, eHeight;
     Button bCalculate, bSubmit;
     Switch sw;
 
+    public MetricsFragment(String u) {this.username = u;}
     double bmi = 0;
-
-    private String username;
-    public MetricsFragment(String u) {
-        this.username = u;
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
