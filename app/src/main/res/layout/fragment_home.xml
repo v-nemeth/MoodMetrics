@@ -70,10 +70,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="" />
-
-
-
-            <!-- You can repeat such views to represent days -->
+            <!-- The rest of the mood board will be generated in HomeFragment.java -->
         </GridLayout>
 
         <Button

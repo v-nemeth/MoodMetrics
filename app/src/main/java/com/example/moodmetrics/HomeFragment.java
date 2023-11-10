@@ -65,9 +65,8 @@ public class HomeFragment extends Fragment {
         cursor.close();
     }
 
-    private void populateMoodGrid(HashMap<String, Integer> moodEntries, View view){
+    private void populateMoodGrid(HashMap<String, Integer> moodEntries, View view) {
         GridLayout gridLayout = view.findViewById(R.id.monthlyMoodGrid);
-
         ArrayList<Pair<String, Integer>> sortedMoodList = generateSortedMoodList(moodEntries);
 
         int i = 0;
@@ -76,62 +75,71 @@ public class HomeFragment extends Fragment {
             String date = moodEntry.first;
             int moodValue = moodEntry.second;
 
-            if (i%7 == 0){
-                TextView tv = new TextView(getContext());
-                tv.setLayoutParams(new ViewGroup.LayoutParams(
-                        ViewGroup.LayoutParams.WRAP_CONTENT,
-                        ViewGroup.LayoutParams.WRAP_CONTENT));
-
-                String currentMonth = date.substring(5,7);
-                System.out.println("CURRENTMONTH:"+currentMonth+" PREVMONTH: "+prevMonth);
-                System.out.println(currentMonth != prevMonth);
-                if(!currentMonth.equals(prevMonth)) {
-                    try {
-                        SimpleDateFormat monthParse = new SimpleDateFormat("MM");
-                        SimpleDateFormat monthDisplay = new SimpleDateFormat("MMM");
-                        tv.setText(monthDisplay.format(monthParse.parse(currentMonth)));
-                        gridLayout.addView(tv);
-                    } catch (ParseException e) {
-                        e.printStackTrace();
-                        tv.setText(currentMonth); // fallback to number if parsing fails
-                    }
-                    prevMonth = currentMonth;
-                } else {
-                    gridLayout.addView(new TextView(getContext()));
-                }
+            if (i % 7 == 0) {
+                addMonthHeaderToGrid(gridLayout, date, prevMonth);
+                prevMonth = date.substring(5, 7);
             }
 
-            View moodView = new View(getContext());
-            GridLayout.LayoutParams params = new GridLayout.LayoutParams();
-            params.width = (int) getResources().getDimension(R.dimen.mood_view_size);
-            params.height = (int) getResources().getDimension(R.dimen.mood_view_size);
-            params.setMargins(4, 4, 4, 4);
-            moodView.setLayoutParams(params);
-
-            // Set color based on moodValue, you can customize this part
-            switch (moodValue) {
-                case 1:
-                    moodView.setBackgroundColor(Color.parseColor("#fd4141"));
-                    break;
-                case 2:
-                    moodView.setBackgroundColor(Color.parseColor("#fd7575"));
-                    break;
-                case 3:
-                    moodView.setBackgroundColor(Color.parseColor("#ebedf0"));
-                    break;
-                case 4:
-                    moodView.setBackgroundColor(Color.parseColor("#9be9a8"));
-                    break;
-                case 5:
-                    moodView.setBackgroundColor(Color.parseColor("#40c463"));
-                    break;
-                default:
-                    moodView.setBackgroundColor(Color.GRAY);
-                    break;
-            }
-
-            gridLayout.addView(moodView);
+            addMoodViewToGrid(gridLayout, moodValue);
             i++;
+        }
+    }
+
+    private void addMonthHeaderToGrid(GridLayout gridLayout, String date, String prevMonth) {
+        TextView tv = new TextView(getContext());
+        tv.setLayoutParams(new ViewGroup.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT));
+
+        String currentMonth = date.substring(5, 7);
+        if (!currentMonth.equals(prevMonth)) {
+            tv.setText(getMonthDisplayString(currentMonth));
+            gridLayout.addView(tv);
+        } else {
+            gridLayout.addView(new TextView(getContext()));
+        }
+    }
+
+    private String getMonthDisplayString(String month) {
+        try {
+            SimpleDateFormat monthParse = new SimpleDateFormat("MM");
+            SimpleDateFormat monthDisplay = new SimpleDateFormat("MMM");
+            return monthDisplay.format(monthParse.parse(month));
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return month; // fallback to number if parsing fails
+        }
+    }
+
+    private void addMoodViewToGrid(GridLayout gridLayout, int moodValue) {
+        View moodView = new View(getContext());
+        moodView.setLayoutParams(createMoodViewLayoutParams());
+        moodView.setBackgroundColor(getMoodColor(moodValue));
+        gridLayout.addView(moodView);
+    }
+
+    private GridLayout.LayoutParams createMoodViewLayoutParams() {
+        GridLayout.LayoutParams params = new GridLayout.LayoutParams();
+        params.width = (int) getResources().getDimension(R.dimen.mood_view_size);
+        params.height = (int) getResources().getDimension(R.dimen.mood_view_size);
+        params.setMargins(4, 4, 4, 4);
+        return params;
+    }
+
+    private int getMoodColor(int moodValue) {
+        switch (moodValue) {
+            case 1:
+                return Color.parseColor("#fd4141");
+            case 2:
+                return Color.parseColor("#fd7575");
+            case 3:
+                return Color.parseColor("#ebedf0");
+            case 4:
+                return Color.parseColor("#9be9a8");
+            case 5:
+                return Color.parseColor("#40c463");
+            default:
+                return Color.GRAY;
         }
     }
 
@@ -162,7 +170,6 @@ public class HomeFragment extends Fragment {
 
         return sortedMoods;
     }
-
     //This method calculates
     private int calculateRangeDays() {
         Calendar calendar = Calendar.getInstance();
@@ -185,6 +192,4 @@ public class HomeFragment extends Fragment {
 
         return days;
     }
-
-
 }
