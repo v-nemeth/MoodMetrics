@@ -72,7 +72,8 @@ public class DBHelper extends SQLiteOpenHelper {
         return null; // or you can throw an exception if you prefer
     }
 
-    public Boolean addMoodEntryToDB(String username, String mood, Date date) {
+    @SuppressLint("SimpleDateFormat")
+    public void addMoodEntryToDB(String username, String mood, Date date) {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String dateString = sdf.format(date);
         SQLiteDatabase MyDB = this.getWritableDatabase();
@@ -80,25 +81,23 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put("username", username);
         contentValues.put("mood", mood);
         contentValues.put("date", dateString);
-        long result = MyDB.insert("moodEntries", null, contentValues);
-        return result != -1;
+        MyDB.insert("moodEntries", null, contentValues);
     }
 
     public HashMap<String, Integer> fetchMoodEntries(String username){
-        // fetch the last 90 days of mood entries and return a hashmap of the dates and moods
-
-           SQLiteDatabase MyDB = this.getReadableDatabase();
-           Cursor cursor = MyDB.rawQuery("Select * from moodEntries where username = ?", new String[]{username});
-           HashMap<String, Integer> moodEntries = new HashMap<>();
-           if(cursor.moveToFirst()) {
-               do {
-                   @SuppressLint("Range") String date = cursor.getString(cursor.getColumnIndex("date"));
-                   @SuppressLint("Range") String mood = cursor.getString(cursor.getColumnIndex("mood"));
-                   moodEntries.put(date, Integer.parseInt(mood));
-               } while (cursor.moveToNext());
-           }
-           return moodEntries;
-
+        SQLiteDatabase MyDB = this.getReadableDatabase();
+        HashMap<String, Integer> moodEntries;
+        try (Cursor cursor = MyDB.rawQuery("Select * from moodEntries where username = ?", new String[]{username})) {
+            moodEntries = new HashMap<>();
+            if (cursor.moveToFirst()) {
+                do {
+                    @SuppressLint("Range") String date = cursor.getString(cursor.getColumnIndex("date"));
+                    @SuppressLint("Range") String mood = cursor.getString(cursor.getColumnIndex("mood"));
+                    moodEntries.put(date, Integer.parseInt(mood));
+                } while (cursor.moveToNext());
+            }
+        }
+        return moodEntries;
     }
 
     private HashMap<String, Integer> generateMockMoodEntries() {
