@@ -101,7 +101,7 @@
             android:focusable="true" />
 
         <Button
-            android:id="@+id/submit"
+            android:id="@+id/submitBTN"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/bmiInterpretation"

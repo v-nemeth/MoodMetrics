@@ -83,7 +83,7 @@ public class MetricsFragment extends Fragment {
         eWeight = view.findViewById(R.id.weightInput);
         eHeight = view.findViewById(R.id.heightInput);
         bCalculate = view.findViewById(R.id.calculateButton);
-        bSubmit = view.findViewById(R.id.submit);
+        bSubmit = view.findViewById(R.id.submitBTN);
         tResult = view.findViewById(R.id.bmiResult);
         tInter = view.findViewById(R.id.bmiInterpretation);
 
@@ -119,6 +119,7 @@ public class MetricsFragment extends Fragment {
                         String inPre = Interpretation(bmi);
                         tInter.setText("Interpretation: " + inPre);
 
+
                     } else if (sw.isChecked() == true){
                         double num1 = Double.parseDouble(eWeight.getText().toString());
                         double num2 = Double.parseDouble(eHeight.getText().toString());
@@ -138,7 +139,7 @@ public class MetricsFragment extends Fragment {
 
         bSubmit.setOnClickListener(v -> {
             DBHelper dbHelper = DBHelper.getInstance(getContext());
-            double tmp = Math.round(bmi*100)/100.0;
+            Double tmp = Math.round(bmi*100)/100.0;
             dbHelper.addBmiEntryToDB(username, tmp, new Date());
             Toast.makeText(getActivity(), "Your BMI Result is Saved", Toast.LENGTH_SHORT).show();
             bSubmit.setEnabled(false);
