@@ -132,14 +132,14 @@ public class MetricsFragment extends Fragment {
                     bSubmit.setEnabled(true);
                 } catch(Exception e) {
                     Toast.makeText(getActivity(), "Please Enter A Value", Toast.LENGTH_SHORT).show();
-                    return;
                 }
             }
         });
 
         bSubmit.setOnClickListener(v -> {
             DBHelper dbHelper = DBHelper.getInstance(getContext());
-            dbHelper.addBmiEntryToDB(username, bmi, new Date());
+            double tmp = Math.round(bmi*100)/100.0;
+            dbHelper.addBmiEntryToDB(username, tmp, new Date());
             Toast.makeText(getActivity(), "Your BMI Result is Saved", Toast.LENGTH_SHORT).show();
             bSubmit.setEnabled(false);
         });
