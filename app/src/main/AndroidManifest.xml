@@ -27,6 +27,9 @@
             android:name=".MainActivity"
             android:exported="true">
         </activity>
+        <activity
+            android:name=".ArticleDetailActivity">
+        </activity>
     </application>
 
 </manifest>
