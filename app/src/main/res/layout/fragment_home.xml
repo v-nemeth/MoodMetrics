@@ -5,6 +5,10 @@
     android:layout_height="match_parent"
     tools:context=".HomeFragment">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
     <!-- TODO: Update blank fragment layout -->
     <RelativeLayout
         android:layout_width="match_parent"
@@ -104,6 +108,15 @@
             android:layout_marginTop="12dp"
             android:layout_centerHorizontal="true" />
 
-    </RelativeLayout>
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/myLineChart"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_above="@id/showGraphButton"
+            android:background="@android:color/white"
+            />
 
+
+    </RelativeLayout>
+    </ScrollView>
 </FrameLayout>

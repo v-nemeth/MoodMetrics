@@ -8,7 +8,11 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import com.github.mikephil.charting.data.Entry;
+
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -19,7 +23,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String DBNAME = "Login.db";
     private static DBHelper instance;
 
-    private DBHelper(Context context) {
+    DBHelper(Context context) {
         super(context, DBNAME, null, 1);
     }
 
@@ -133,18 +137,36 @@ public class DBHelper extends SQLiteOpenHelper {
         MyDB.insert("bmiEntries", null, contentValues);
     }
 
-    public HashMap<String, Double> fetchBmiEntries(String username) {
-        SQLiteDatabase MyDB = this.getReadableDatabase();
-        Cursor cursor = MyDB.rawQuery("Select * from bmiEntries where username = ?", new String[]{username});
-        HashMap<String, Double> bmiEntries = new HashMap<>();
+    public ArrayList<Entry> fetchBmiEntries(String username) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        ArrayList<Entry> entries = new ArrayList<>();
+        Cursor cursor = db.rawQuery("SELECT * FROM bmiEntries WHERE username = ?", new String[]{username});
+
+        int i = 0;
         if (cursor.moveToFirst()) {
             do {
                 @SuppressLint("Range") String date = cursor.getString(cursor.getColumnIndex("date"));
-                @SuppressLint("Range") double bmi = cursor.getDouble(cursor.getColumnIndex("bmi"));
-                bmiEntries.put(date, bmi);
+                @SuppressLint("Range") float bmi = cursor.getFloat(cursor.getColumnIndex("bmi"));
+                // Ensure x-values are dates and y-values are BMI
+                entries.add(new Entry(parseDateToMillis(date), bmi));
+                i++;
             } while (cursor.moveToNext());
         }
-        return bmiEntries;
+        cursor.close();
+        return entries;
+    }
+
+    private long parseDateToMillis(String dateString) {
+        // Convert date string to milliseconds (or a suitable format for x-values)
+        // For instance, using SimpleDateFormat:
+        try {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            Date date = sdf.parse(dateString);
+            return date.getTime(); // Convert date to milliseconds
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return 0; // Return default value in case of parsing issues
+        }
     }
 
     public Cursor fetchLatestBmiEntry(String username) {

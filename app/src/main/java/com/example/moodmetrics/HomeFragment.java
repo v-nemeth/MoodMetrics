@@ -13,6 +13,7 @@ import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.TextView;
 
@@ -24,9 +25,36 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.LineData;
+import com.github.mikephil.charting.data.LineDataSet;
+
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.LineData;
+import com.github.mikephil.charting.data.LineDataSet;
+import java.util.ArrayList;
+
+
 public class HomeFragment extends Fragment {
     DBHelper DB;
     String username;
+    Button graphBTN;
+
+    private boolean isChartVisible = false;
+
     public HomeFragment(String u) {
         this.username = u;
     }
@@ -35,18 +63,44 @@ public class HomeFragment extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
+    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         DB = DBHelper.getInstance(getContext());
 
         populateMoodGrid(DB.fetchMoodEntries(username), view);
 
+
+        lineChart = view.findViewById(R.id.myLineChart);
+        graphBTN = view.findViewById(R.id.showGraphButton);
+
+        lineChart.setVisibility(View.GONE);
+
+
+        graphBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                toggleChartVisibility();
+            }
+        });
+
         //BMI parts
         vBMI(view);
 
         return view;
+    }
+
+    private void toggleChartVisibility() {
+        isChartVisible = !isChartVisible;
+
+        if (isChartVisible) {
+            lineChart.setVisibility(View.VISIBLE);
+            setupChart(DB.fetchBmiEntries(username));
+        } else {
+            lineChart.setVisibility(View.GONE);
+        }
     }
 
     private void vBMI(View view){
@@ -191,5 +245,29 @@ public class HomeFragment extends Fragment {
         }
 
         return days;
+    }
+
+
+    private LineChart lineChart;
+
+    private void setupChart(ArrayList<Entry> entries) {
+        LineDataSet dataSet = new LineDataSet(entries, "BMI History");
+        dataSet.setColor(Color.BLUE);
+        dataSet.setValueTextColor(Color.BLACK);
+        dataSet.setColor(Color.BLUE); // Set line color
+        dataSet.setLineWidth(2f); // Set line thickness
+        dataSet.setValueTextSize(12f); // Set text size for values
+
+
+        LineData lineData = new LineData(dataSet);
+
+        XAxis xAxis = lineChart.getXAxis();
+        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+        xAxis.setTextColor(Color.BLACK); // Set X-axis label text color
+        xAxis.setTextSize(12f); // Set X-axis label text size
+        xAxis.setValueFormatter(new DateAxisValueFormatter());
+
+        lineChart.setData(lineData);
+        lineChart.invalidate();
     }
 }
